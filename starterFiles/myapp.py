@@ -136,21 +136,33 @@ class UserInterface(GridLayout):
             b = float(b)
             c = float(c)
             a = (c**2 - b**2)**(1/2)
-            return {"a": a}
+
+            if b <= 0 or c <= 0:
+                return {'error': 'sides cannot be zero or negative values.'}
+            else:
+                return {"a": str(a)}
 
         elif b == "" and a!="" and c!="":
             # find b
             a = float(a)
             c = float(c)
             b = (c**2-a**2)**(1/2)
-            return {"b": b}
+
+            if a <= 0 or c <= 0:
+                return {'error': 'sides cannot be zero or negative values.'}
+            else:
+                return {"b": str(b)}
 
         elif c == "" and a!="" and b!="":
             # find c
             a = float(a)
             b = float(b)
             c = (a**2+b**2)**(1/2)   
-            return {"c": c}
+
+            if b <= 0 or a <= 0:
+                return {'error': 'sides cannot be zero or negative values.'}
+            else:
+                return {"c": str(c)}
 
         elif a=="" and b=="" and c=="":
             # 0 arguments provided
